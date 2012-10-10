@@ -7,8 +7,7 @@ function start(route, handle){
 		var postData = "";
 		var pathname = url.parse(request.url).pathname;
 		console.log("Request for " + pathname + " received");
-		route(handle, pathname, response);
-
+		
 		request.setEncoding("utf8");
 		request.addListener("data", function(postDataChunk){
 			postData = postData + postDataChunk;
@@ -23,7 +22,7 @@ function start(route, handle){
 		// response.write("\n Hello World \n");
 		// response.end();
 	}
-	
+
 	http.createServer(onRequest).listen(8888);
 	console.log(" \n Server has started... ");
 }
